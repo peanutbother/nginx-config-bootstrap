@@ -1,0 +1,11 @@
+include /etc/nginx/sites-available/example.com/*;
+include /etc/nginx/sites-available/ip/*;
+#include /etc/nginx/sites-available/FQDN.tld/*; # separate domains by folder and subdomains by files => domain/subdomain.conf
+
+server {
+	listen 80;
+	listen 443 ssl;
+	server_name _;
+	return 302 https://example.com$request_uri; # fallback to default domain
+	include /etc/nginx/snippets/ssl/example.com.conf; # setup ssl
+}

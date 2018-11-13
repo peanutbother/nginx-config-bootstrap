@@ -1,0 +1,7 @@
+server {
+    listen 80;
+    listen 443 ssl;
+    server_name 1.2.3.4;
+    return 302 https://example.com$request_uri; # redirect ip to domain
+    include /etc/nginx/snippets/ssl/example.com.conf; # setup ssl
+}

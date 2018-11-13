@@ -1,0 +1,15 @@
+server {
+	listen 80;
+	listen 443 ssl;
+	server_name example.com;
+	root /var/jabuco/site/build;
+
+	include /etc/nginx/snippets/ssl/spa-prerender.conf; # uses ssl bootstrap &  SPA configuration
+	include /etc/nginx/snippets/ssl/example.com.conf; # certbot ssl configuration for example.com certificate
+	#include /etc/nginx/snippets/sites/example.com.conf; # @node location
+	location @node {
+	  include /etc/nginx/snippets/transparent-proxy.conf;
+	  error_page 502 = @static;
+	  proxy_pass http://localhost:8080;
+	} 
+}
