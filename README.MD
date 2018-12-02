@@ -53,8 +53,11 @@ Every other file in that directory is named after the subdomain it handles.
 ### Snippets
 
 For easy and fast configuration, there are several snippets to get you started.
+
+#### Standard
+
 | File | Snippet |
-| ---- | ---- |
+| ---- | ------- |
 | `fastcgi-php.conf` | Fastcgi bootstrap configuration |
 | `html.conf` | simple HTML configuration |
 | `php.conf` | simple fastcgi / PHP configuration |
